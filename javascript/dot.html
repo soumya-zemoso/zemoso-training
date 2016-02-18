@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="200" height="100"
+style="border:1px solid #c3c3c3;">
+Your browser does not support the canvas element.
+</canvas>
+
+<script>
+var canvas = document.getElementById('myCanvas');
+var ctx = canvas.getContext("2d");
+canvas.addEventListener("mousedown", clickedcanvas, false);
+var rects = [];
+function clickedcanvas(event)
+{
+	var x = event.x;
+	var y = event.y;
+	x -= canvas.offsetLeft;
+	y -= canvas.offsetTop;
+	//alert("x:" + x + " y:" + y);
+	
+	storeCoordinate(x, y, rects);
+	
+}
+function storeCoordinate(x, y, array) {
+	if(array.indexOf(x) == -1 && array.indexOf(y) == -1)
+	{
+		
+		ctx.fillRect(x-1,y-1,1,1);
+  		array.push(x);
+  		array.push(y);
+		drawcircle(array);
+		
+	}
+	else
+	{
+		ctx.fillStyle = "rgb(255,255,255)";
+		ctx.fillRect(x-1,y-1,1,1);
+  		//array=array.slice(array.indexOf(y),1);
+  		//array=array.slice(array.indexOf(x),1);
+		//alert(array.indexOf(x)+" "+array.indexOf(y));
+		ctx.fillStyle = "rgb(0,0,0)";
+	}
+}
+alert(array.length);
+for (var i = 0; i < rects.length; i++) {
+   // var x += rects[i]+ " ";
+	alert(rects[i]);
+} 
+function drawcircle(array)
+{
+	var maxx,maxy;
+	maxx=array[0];
+	maxy=array[1];
+	//	alert("in draw");
+	for (var i = 0; i < rects.length; i++) {
+  	 // var x += rects[i]+ " ";
+	//	alert(rects[i]);
+		if(i%2==0)
+		{
+			if(array[i]>maxx)
+				maxx=array[i];
+			//alert(maxx);
+		}
+		else
+		{
+			if(array[i]>maxy)
+				maxy=array[i];
+			//alert(maxy);
+		}
+		//alert("maxx"+maxx+" maxy"+maxy);
+	} 
+	var minx,miny;
+	minx=array[0];
+	miny=array[1];
+	//	alert("in draw");
+	for (var i = 0; i < rects.length; i++) {
+  	 // var x += rects[i]+ " ";
+	//	alert(rects[i]);
+		if(i%2==0)
+		{
+			if(array[i]<minx)
+				minx=array[i];
+			//alert(minx);
+		}
+		else
+		{
+			if(array[i]<miny)
+				miny=array[i];
+			//alert(miny);
+		}
+		//alert("minx"+minx+" miny"+miny);
+	} 
+	var d = Math.sqrt( (maxx-=minx)*maxx + (maxy-=miny)*maxy );
+	//alert("distance"+d);
+	var cx,cy;
+	cx=(maxx+minx)/2;
+	cy=(maxy+miny)/2;
+	//alert("minx"+minx+" miny"+miny+"maxx"+maxx+" maxy"+maxy+"cx"+cx+" cy"+cy);
+	ctx.moveTo(cx, cy);
+	ctx.beginPath();
+	ctx.arc(cx,cy,d,0,Math.PI*2,false);
+	ctx.closePath();
+	ctx.strokeStyle = "#ccc";
+	ctx.stroke();
+	
+	
+	
+}
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Soumya</title>
+<link href="templatemo_style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="templatemo_header_wrapper">
+  <div id="templatemo_header">
+    <div id="templatemo_menu">
+      		<div id="templatemo_menu_left"></div>
+            <ul>
+                  <li><a href="home.html">Home</a></li>
+                  <li><a href="AboutMe.html">About Me </a></li>
+                  <li><a href="ContactMe.html">Contact Me </a></li>
+                  <li><a href="gallery.html" class="current">Gallery</a></li>
+                 
+            </ul>    	
+	</div> 
+    
+  </div>
+</div> 
+
+<div id="templatemo_banner_wrapper">
+	<div id="templatemo_banner">
+    
+   	  <div id="templatemo_banner_image">
+        	<div id="templatemo_banner_image_wrapper">
+            	<img src="images/homeimage.jpg" alt="image" width="380" height="210" />            </div>
+      </div>
+        
+        <div id="templatemo_banner_content">
+        	<div class="header_01">Welcome to my website </div>
+            <p>It is a website providing information about me, my contact details and a gallery of photos. </p>
+      </div>
+        <div class="cleaner"></div>
+    </div> 
+</div> 
+
+
+</body>
+</html>
